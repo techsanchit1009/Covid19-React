@@ -11,28 +11,30 @@ const currentSituations = (props) => {
   };
 
   useEffect(() => {
-    axios.get("https://corona.lmao.ninja/all").then((response) => {
+    axios.get("https://api.thevirustracker.com/free-api?global=stats").then((response) => {
+      let fetchedResponse = response.data.results[0];
       let updatedCases = [
         ...cases,
         {
           heading: "Total Cases",
-          casesCount: formatCases(response.data.cases),
+          casesCount: formatCases(fetchedResponse.total_cases),
         },
         {
           heading: "Recovered",
-          casesCount: formatCases(response.data.recovered),
+          casesCount: formatCases(fetchedResponse.total_recovered),
         },
         {
           heading: "Active Cases",
-          casesCount: formatCases(response.data.active),
+          casesCount: formatCases(fetchedResponse.total_active_cases),
         },
         {
           heading: "Total Deaths",
-          casesCount: formatCases(response.data.deaths),
+          casesCount: formatCases(fetchedResponse.total_deaths),
         },
       ];
       setCases(updatedCases);
-    });
+    })
+    .catch(err => console.log('Error in fetching data'));
   }, []);
 
   return (
