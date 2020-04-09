@@ -2,32 +2,34 @@
   display: flex;
   max-width: 70vw;
   justify-content: space-between;
-  margin: 0 1rem;
+  margin: 1rem 0;
   box-sizing: border-box;
+  flex-wrap: wrap;
 }
 
 .CaseCard{
   display: flex;
   flex: 1;
+  padding: 1rem;
 }
 
 .CaseHeading{
   display: block;
-  /* width: 200px; */
   color: rgb(80, 78, 78);
   font-size: 14px;
 }
 
 .CaseCount{
   display: block;
-  /* width: 200px; */
   font-size: 22px;
   font-weight: bold;
 }
 
 .CaseGraph{
-  flex: 1;
-  height: autp;
+  /* flex: 1; */
+  margin-left: 1.4rem;
+  height: 60px;
   width: 80px;
-  border: 1px solid black;
+
+  border: 1px solid #ccc;
 }

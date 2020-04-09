@@ -1,0 +1,29 @@
+.Country{
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+.CountryHeading{
+  display: flex;
+}
+
+.CountryHeading div{
+  margin: 0 0.5rem;
+  align-self: center;
+  margin-left: 0;
+}
+
+.CountryDetail{
+  color: #888;
+  font-size: 12px;
+  padding: 0 10px;
+}
+
+
+.Affected{
+  border-right: 1px solid #777;
+  padding-left: 0;
+}
