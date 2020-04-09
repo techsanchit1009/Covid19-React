@@ -23,7 +23,6 @@ const countryList = () => {
   }, []);
 
   //  Searching work 
-
   useEffect(() => {
     let updatedCountries = countries.filter(country => {
       return country.Country.toLowerCase().includes(searchFilter.toLowerCase());

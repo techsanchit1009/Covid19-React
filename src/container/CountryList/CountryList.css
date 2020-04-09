@@ -8,11 +8,11 @@
 }
 
 .List{
-  margin-top:3rem;
+  /* margin-top:3rem; */
 }
 
 .SearchArea{
-  position: fixed;
+  position: relative;
 }
 
 .SearchInput{
