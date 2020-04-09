@@ -1,0 +1,33 @@
+.CurrentSituations {
+  display: flex;
+  max-width: 70vw;
+  justify-content: space-between;
+  margin: 0 1rem;
+  box-sizing: border-box;
+}
+
+.CaseCard{
+  display: flex;
+  flex: 1;
+}
+
+.CaseHeading{
+  display: block;
+  /* width: 200px; */
+  color: rgb(80, 78, 78);
+  font-size: 14px;
+}
+
+.CaseCount{
+  display: block;
+  /* width: 200px; */
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.CaseGraph{
+  flex: 1;
+  height: autp;
+  width: 80px;
+  border: 1px solid black;
+}

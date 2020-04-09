@@ -1,6 +1,5 @@
 .NavBar {
-  background-color: #fff;
-  border: 1px solid black;
   display: flex;
-  
+  background-color: #fff;
+  box-shadow: 0px 0px 8px #bbb;
 }

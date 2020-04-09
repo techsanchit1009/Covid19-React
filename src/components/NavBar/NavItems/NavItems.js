@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Logo from '../Logo/Logo';
 import NavItem from './NavItem/NavItem';
 import classes from './NavItems.css';
@@ -9,7 +9,7 @@ const navItems = () => {
       <Logo />
       <ul className={classes.NavItems}>
         <NavItem>Home</NavItem>
-        <NavItem>FAQs</NavItem>
+        <NavItem>FAQ</NavItem>
         <NavItem>Helpful Links</NavItem>
       </ul>
     </React.Fragment>
