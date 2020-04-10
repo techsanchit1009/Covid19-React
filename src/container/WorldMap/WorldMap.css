@@ -2,3 +2,39 @@
   flex:2;
   /* height: 50vh; */
 }
+
+.Map{
+  margin: 1rem;
+  margin-top: 0;
+}
+
+.MapHeading{
+  display: flex;
+  padding: 1rem;
+}
+
+.MapHeading div{
+  flex:1
+}
+
+.ColorLabels{
+  display: flex;
+}
+
+.Most{
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  margin-right: 2px;
+  background-color: #FF0019;
+  border-radius: 2px;
+}
+
+.Least{
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  margin-right: 2px;
+  background-color: #FFC4C6;
+  border-radius: 2px;
+}
