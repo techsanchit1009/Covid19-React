@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../../../shared/Card/Card";
 import classes from "./Country.css";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const country = (props) => {
 
@@ -13,7 +14,7 @@ const country = (props) => {
       <div className={classes.Country}>
         <div className={classes.CountryHeading}>
           <div>
-          <img
+          <LazyLoadImage
             src={props.flag}
             alt={props.countryName}
           />
@@ -21,10 +22,10 @@ const country = (props) => {
           <div>{props.countryName}</div>
         </div>
         <span className={[classes.CountryDetail, classes.Affected].join(' ')}>
-          {props.affected < 100 ? (props.affected) : `${formatCases(props.affected)}k`} Affected
+          {props.affected < 1000 ? (props.affected) : `${formatCases(props.affected)}k`} Affected
           </span>
         <span className={[classes.CountryDetail, classes.Recovered].join(' ')}>
-        {props.recovered < 100 ? (props.recovered) : `${formatCases(props.recovered)}k`} Recovered</span>
+        {props.recovered < 1000 ? (props.recovered) : `${formatCases(props.recovered)}k`} Recovered</span>
       </div>
     </Card>
   );

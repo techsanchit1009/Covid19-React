@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar/NavBar";
 import classes from "./App.css";
 import CurrentSitutations from "./container/CurrentSituations/CurrentSituations";
 import CountryList from "./container/CountryList/CountryList";
+import WorldMap from './container/WorldMap/WorldMap';
 
 const app = () => {
   return (
@@ -10,10 +11,14 @@ const app = () => {
       <div className={classes.Container}>
         <NavBar />
         <CurrentSitutations />
+
         <div className={classes.ListnMap}>
           <CountryList />
-          <div style={{'border' : '1px solid black', 'height':'40vh', 'flex':'2'}}></div>
+          {/* <div style={{'border' : '1px solid black', 'height':'40vh', 'flex':'2'}}></div> */}
+          <WorldMap />
         </div>
+
+        
       </div>
     </div>
   );

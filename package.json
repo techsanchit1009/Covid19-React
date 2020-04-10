@@ -4,8 +4,11 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
+    "highcharts": "^8.0.4",
+    "highcharts-react-official": "^3.0.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-lazy-load-image-component": "^1.4.3"
   },
   "devDependencies": {
     "autoprefixer": "6.7.2",

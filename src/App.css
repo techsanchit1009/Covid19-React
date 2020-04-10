@@ -1,5 +1,6 @@
 .App {
   background-color: #e7e9ec;
+  height: 200vh;
 }
 
 .Container{
@@ -9,6 +10,6 @@
 
 .ListnMap{
   display: flex;
-  max-width: 70vw;
+  max-width: 75vw;
   justify-content: space-between;
 }

@@ -1,6 +1,6 @@
 .CurrentSituations {
   display: flex;
-  max-width: 70vw;
+  max-width: 75vw;
   justify-content: space-between;
   margin: 1rem 0;
   box-sizing: border-box;
