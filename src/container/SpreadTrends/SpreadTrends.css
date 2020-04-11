@@ -1,0 +1,12 @@
+.SpreadTrends{
+  flex:1
+}
+
+.Graph{
+  margin: 1rem;
+}
+
+.GraphHeading{
+  padding: 1rem;
+  padding-bottom: 0;
+}
