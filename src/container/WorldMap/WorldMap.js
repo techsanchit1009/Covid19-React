@@ -12,23 +12,28 @@ const worldMap = () => {
   const [countriesArray, setCountriesArray] = useState([]);
 
   useEffect(() => {
-    axios.get("https://api.covid19api.com/summary").then((response) => {
-      let convertedArray = [];
-      response.data.Countries.map((country) => {
-        // eslint-disable-next-line
-        let countryArray = new Array(
-          country.CountryCode.toLowerCase(),
-          country.TotalConfirmed
-        );
-        return convertedArray.push(countryArray);
+    axios
+      .get("https://corona.lmao.ninja/countries?sort=country")
+      .then((response) => {
+        let convertedArray = [];
+        response.data.map((country) => {
+          if (country.countryInfo.iso2) {
+            // eslint-disable-next-line
+            let countryArray = new Array(
+              country.countryInfo.iso2.toLowerCase(),
+              country.cases
+            );
+            convertedArray.push(countryArray);
+          }
+          return convertedArray;
+        });
+        setCountriesArray(convertedArray);
       });
-      setCountriesArray(convertedArray);
-    });
   }, []);
 
   const mapOptions = {
-    chart:{
-      backgroundColor: '#FBF6F6'
+    chart: {
+      backgroundColor: "#FBF6F6",
     },
     title: {
       text: "",
@@ -61,10 +66,14 @@ const worldMap = () => {
     <div className={classes.WorldMap}>
       <Card>
         <div className={classes.MapHeading}>
-          <div style={{'fontWeight': 'bold'}}>COVID-19 Affected Areas</div>
+          <div style={{ fontWeight: "bold" }}>COVID-19 Affected Areas</div>
           <div className={classes.ColorLabels}>
-            <div><span className={classes.Most}></span> Most Affected</div>
-            <div><span className={classes.Least}></span> Least Affected</div>
+            <div>
+              <span className={classes.Most}></span> Most Affected
+            </div>
+            <div>
+              <span className={classes.Least}></span> Least Affected
+            </div>
           </div>
         </div>
         <div className={classes.Map}>

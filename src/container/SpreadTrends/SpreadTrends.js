@@ -6,13 +6,14 @@ import classes from "./SpreadTrends.css";
 
 const spreadTrends = () => {
   const [graphData, setGraphData] = useState([]);
+  const [graphType, setGraphType] = useState("Confirmed");
+
   useEffect(() => {
     axios
       .get("https://pomber.github.io/covid19/timeseries.json")
       .then((response) => {
         const countryList = Object.keys(response.data);
         const totalDays = response.data[countryList[0]].length;
-        console.log(response.data, response.data[countryList[0]][3], totalDays);
         const totalCountries = countryList.length;
         const finalData = [];
         for (let i = 0; i < totalDays; i++) {
@@ -26,12 +27,11 @@ const spreadTrends = () => {
             totalRecovered += response.data[countryList[j]][i].recovered;
             totalDeath += response.data[countryList[j]][i].deaths;
           }
-          groupedObj.confirmedCases = totalCases;
-          groupedObj.recoveredCases = totalRecovered;
-          groupedObj.deaths = totalDeath;
+          groupedObj["Confirmed"] = totalCases;
+          groupedObj["Recovered"] = totalRecovered;
+          groupedObj["Deaths"] = totalDeath;
           finalData.push(groupedObj);
         }
-        console.log(finalData);
         setGraphData(finalData);
       });
   }, []);
@@ -39,17 +39,49 @@ const spreadTrends = () => {
     <div className={classes.SpreadTrends}>
       <Card>
         <div className={classes.GraphHeading}>
-        <p>SpreadTrends</p>
+          <div>
+            <p>SpreadTrends</p>
+          </div>
+          <div className={classes.GraphButtonsArea}>
+            <button
+              className={
+                graphType === "Confirmed"
+                  ? [classes.GraphButton, classes.Active].join(" ")
+                  : classes.GraphButton
+              }
+              onClick={() => setGraphType("Confirmed")}
+            >Confirmed</button>
+
+            <button
+              className={
+                graphType === "Recovered"
+                  ? [classes.GraphButton, classes.Active].join(" ")
+                  : classes.GraphButton
+              }
+              onClick={() => setGraphType("Recovered")}
+            >Recovered</button>
+
+            <button
+              className={
+                graphType === "Deaths"
+                  ? [classes.GraphButton, classes.Active].join(" ")
+                  : classes.GraphButton
+              }
+              onClick={() => setGraphType("Deaths")}
+            >Deceased</button>
+
+          </div>
         </div>
         <div className={classes.Graph}>
-          <LineChart width={448} height={151} data={graphData}>
+          <LineChart width={448} height={151} data={graphData} >
             <YAxis tick={{ fontSize: "12px" }} orientation="right" />
             <Tooltip />
             <Line
               type="linear"
-              dataKey="confirmedCases"
+              dataKey={graphType}
               stroke="#FF6C75"
               strokeWidth={2}
+              dot={false}
             />
             <XAxis dataKey="date" tick={{ fontSize: "12px" }} />
           </LineChart>

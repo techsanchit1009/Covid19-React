@@ -13,19 +13,19 @@ const countryList = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get("https://api.covid19api.com/summary").then((response) => {
+    axios.get("https://corona.lmao.ninja/countries?sort=country").then((response) => {
       setLoading(false);
-      let fetchedData = response.data.Countries.filter(
-        (country) => country.TotalConfirmed > 10
-      ).sort((a, b) => b.TotalConfirmed - a.TotalConfirmed);
+      let fetchedData = response.data.filter(
+        (country) => country.cases > 10
+      ).sort((a, b) => b.cases - a.cases);
       setCountries(fetchedData);
     });
   }, []);
 
   //  Searching work
   useEffect(() => {
-    let updatedCountries = countries.filter((country) => {
-      return country.Country.toLowerCase().includes(searchFilter.toLowerCase());
+    let updatedCountries = countries.filter((countryIter) => {
+      return countryIter.country.toLowerCase().includes(searchFilter.toLowerCase());
     });
     setFilteredCountries(updatedCountries);
   }, [searchFilter, countries]);
@@ -53,13 +53,13 @@ const countryList = () => {
         </div>
         <div className={classes.List}>
           {filteredCountries.length >= 1 && !loading ? (
-            filteredCountries.map((country) => (
+            filteredCountries.map((countryIter) => (
               <Country
-                key={country.CountryCode}
-                flag={generateFlag(country.CountryCode)}
-                countryName={country.Country}
-                affected={country.TotalConfirmed}
-                recovered={country.TotalRecovered}
+                key={countryIter.countryInfo.iso2}
+                flag={generateFlag(countryIter.countryInfo.iso2)}
+                countryName={countryIter.country}
+                affected={countryIter.cases}
+                recovered={countryIter.recovered}
               />
             ))
           ) : (
