@@ -8,9 +8,9 @@ const navItems = () => {
     <React.Fragment>
       <Logo />
       <ul className={classes.NavItems}>
-        <NavItem>Home</NavItem>
-        <NavItem>FAQ</NavItem>
-        <NavItem>Helpful Links</NavItem>
+        <NavItem link="/" exact>Home</NavItem>
+        <NavItem link="/faq">FAQ</NavItem>
+        <NavItem link="/helpful-links">Helpful Links</NavItem>
       </ul>
     </React.Fragment>
   

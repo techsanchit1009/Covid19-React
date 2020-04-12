@@ -35,12 +35,13 @@ const spreadTrends = () => {
         setGraphData(finalData);
       });
   }, []);
+
   return (
     <div className={classes.SpreadTrends}>
       <Card>
         <div className={classes.GraphHeading}>
           <div>
-            <p>SpreadTrends</p>
+            <p>Spread Trends</p>
           </div>
           <div className={classes.GraphButtonsArea}>
             <button
@@ -74,16 +75,16 @@ const spreadTrends = () => {
         </div>
         <div className={classes.Graph}>
           <LineChart width={448} height={151} data={graphData} >
-            <YAxis tick={{ fontSize: "12px" }} orientation="right" />
+            <YAxis tick={{ fontSize: "12px" }} orientation="right" padding={{ bottom: 10}}/>
             <Tooltip />
             <Line
-              type="linear"
+              type="monotone"
               dataKey={graphType}
               stroke="#FF6C75"
               strokeWidth={2}
               dot={false}
             />
-            <XAxis dataKey="date" tick={{ fontSize: "12px" }} />
+            <XAxis dataKey="date" tick={{ fontSize: "12px" }} padding={{ right: 10 }}/>
           </LineChart>
         </div>
       </Card>

@@ -10,13 +10,20 @@
 .CaseCard{
   display: flex;
   flex: 1;
-  padding: 1rem;
+  padding: 0.8rem;
 }
 
 .CaseHeading{
-  display: block;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
   color: rgb(80, 78, 78);
   font-size: 14px;
+}
+
+.CaretSign{
+  margin-left: 8px;
+  font-size: 18px;
 }
 
 .CaseCount{
@@ -26,8 +33,7 @@
 }
 
 .CaseGraph{
-  /* flex: 1; */
-  margin-left: 1.4rem;
+  margin-left: 1.2rem;
   height: 60px;
   width: 80px;
 

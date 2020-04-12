@@ -1,5 +1,12 @@
 .NavBar {
-  display: flex;
   background-color: #fff;
   box-shadow: 0px 0px 8px #bbb;
+}
+
+.Container{
+  max-width: 95vw;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }

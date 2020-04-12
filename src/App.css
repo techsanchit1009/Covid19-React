@@ -3,37 +3,3 @@
   height: 200vh;
 }
 
-.Container{
-  max-width: 95vw;
-  margin: auto;
-}
-
-.Main{
-  display: flex;
-  justify-content: space-between;
-}
-
-.LeftMain{
-  flex: 3;
-}
-
-.RightMain{
-  flex: 1;
-}
-
-.ListnMap{
-  display: flex;
-  max-width: 75vw;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.GraphnNews{
-  display: flex;
-}
-
-
-.RatioNFeeds{
-  display: flex;
-  flex-direction: column;
-}
