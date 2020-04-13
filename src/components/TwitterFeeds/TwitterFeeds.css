@@ -1,0 +1,23 @@
+.TwitterFeeds{
+  padding: 1rem 0;
+}
+
+.TwitterFeedsHeading{
+  display: flex;
+  font-weight: bold;
+  padding: 1rem;
+  padding-bottom: 0.3rem;
+  align-items: center;
+}
+
+.TwitterFeedsHeading span{
+  font-size: 18px;
+  padding-left: 0.6rem;
+  align-self: center;
+  color:#54B5F5 
+}
+
+.TweetList{
+  height: 70vh;
+  overflow-y: scroll;
+}

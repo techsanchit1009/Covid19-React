@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../../shared/Card/Card";
+import Card from "../../../../shared/Card/Card";
 import classes from "./Country.css";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 

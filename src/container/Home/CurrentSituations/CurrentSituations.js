@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Card from "../../shared/Card/Card";
+import Card from "../../../shared/Card/Card";
 import axios from "axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { FaCaretUp, FaCaretDown } from 'react-icons/fa';
 import classes from "./CurrentSituations.css";
 
-const currentSituations = (props) => {
+const currentSituations = () => {
   const [cases, setCases] = useState([]);
 
   const formatCases = (caseCount) => {
@@ -40,6 +39,7 @@ const currentSituations = (props) => {
       })
       .catch((err) => console.log("Error in fetching data"));
   }, []);
+  
 
   return (
     <div className={classes.CurrentSituations}>
@@ -51,8 +51,8 @@ const currentSituations = (props) => {
                 <span>{item.heading}</span>
                 <span className={classes.CaretSign}>
                   {item.heading === 'Recovered' 
-                  ? <FontAwesomeIcon color="#06BA90" icon={faCaretDown} />
-                  :  <FontAwesomeIcon color="red" icon={faCaretUp} /> }
+                  ? <FaCaretDown color="#06BA90" />
+                  :  <FaCaretUp color="red" /> }
                 </span>
               </span>
               <span className={classes.CaseCount}>{item.casesCount}</span>

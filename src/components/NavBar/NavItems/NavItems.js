@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../Logo/Logo';
 import NavItem from './NavItem/NavItem';
 import classes from './NavItems.css';
@@ -6,7 +7,7 @@ import classes from './NavItems.css';
 const navItems = () => {
   return (
     <React.Fragment>
-      <Logo />
+      <Link to="/"><Logo /></Link>
       <ul className={classes.NavItems}>
         <NavItem link="/" exact>Home</NavItem>
         <NavItem link="/faq">FAQ</NavItem>

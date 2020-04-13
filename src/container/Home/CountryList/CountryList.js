@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import searchIcon from "../../assets/search.svg";
-import Card from "../../shared/Card/Card";
+import searchIcon from "../../../assets/search.svg";
+import Card from "../../../shared/Card/Card";
 import axios from "axios";
 import Country from "./Country/Country";
 import classes from "./CountryList.css";

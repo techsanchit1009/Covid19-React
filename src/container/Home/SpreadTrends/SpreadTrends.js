@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Card from "../../shared/Card/Card";
+import Card from "../../../shared/Card/Card";
 import axios from "axios";
 import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
 import classes from "./SpreadTrends.css";
@@ -80,7 +80,7 @@ const spreadTrends = () => {
             <Line
               type="monotone"
               dataKey={graphType}
-              stroke="#FF6C75"
+              stroke={graphType==='Recovered' ? "#06BA90" : "#FF6C75" }
               strokeWidth={2}
               dot={false}
             />

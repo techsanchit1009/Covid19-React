@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import mapData from "./mapData";
-import Card from "../../shared/Card/Card";
+import Card from "../../../shared/Card/Card";
 import classes from "./WorldMap.css";
 import axios from "axios";
 

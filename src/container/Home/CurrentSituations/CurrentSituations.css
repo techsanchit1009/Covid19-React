@@ -7,6 +7,7 @@
   flex-wrap: wrap;
 }
 
+
 .CaseCard{
   display: flex;
   flex: 1;
@@ -22,7 +23,7 @@
 }
 
 .CaretSign{
-  margin-left: 8px;
+  margin-left: 1px;
   font-size: 18px;
 }
 
@@ -33,9 +34,8 @@
 }
 
 .CaseGraph{
-  margin-left: 1.2rem;
+  margin-left: 0.4rem;
   height: 60px;
   width: 80px;
-
   border: 1px solid #ccc;
 }

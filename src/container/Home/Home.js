@@ -1,9 +1,11 @@
 import React from "react";
 import classes from "./Home.css";
-import CurrentSitutations from "../CurrentSituations/CurrentSituations";
-import CountryList from "../CountryList/CountryList";
-import WorldMap from "../WorldMap/WorldMap";
-import SpreadTrends from "../SpreadTrends/SpreadTrends";
+import CurrentSitutations from "./CurrentSituations/CurrentSituations";
+import CountryList from "./CountryList/CountryList";
+import WorldMap from "./WorldMap/WorldMap";
+import SpreadTrends from "./SpreadTrends/SpreadTrends";
+import TwitterFeeds from '../../components/TwitterFeeds/TwitterFeeds';
+import NewsUpdate from './NewsUpdate/NewsUpdate';
 import Card from "../../shared/Card/Card";
 
 const home = () => {
@@ -19,14 +21,14 @@ const home = () => {
             </div>
             <div className={classes.GraphnNews}>
               <SpreadTrends />
-              <div style={{ 'flex':'1' }}><Card>News</Card></div>
+              <NewsUpdate />
             </div>
           </div>
 
           <div className={classes.RightMain}>
             <div className={classes.RatioNFeeds}>
               <Card> Some text</Card>
-              <Card> Some text</Card>
+              <TwitterFeeds />
             </div>
           </div>
         </div>
