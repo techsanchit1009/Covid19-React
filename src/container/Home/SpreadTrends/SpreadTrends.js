@@ -74,7 +74,7 @@ const spreadTrends = () => {
           </div>
         </div>
         <div className={classes.Graph}>
-          <LineChart width={448} height={151} data={graphData} >
+          <LineChart width={420} height={151} data={graphData} >
             <YAxis tick={{ fontSize: "12px" }} orientation="right" padding={{ bottom: 10}}/>
             <Tooltip />
             <Line
