@@ -22,31 +22,30 @@ const newsUpdate = () => {
       });
   }, []);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      x === -100 * (articles.length - 1) ? setX(0) : setX(x - 100);
-    }, 10000);
-    return () => clearInterval(timer);
-  }, [articles, x, setX]);
-
-
   const goLeft = () =>
     x === 0 ? setX(-100 * (articles.length - 1)) : setX(x + 100);
   const goRight = () =>
     x === -100 * (articles.length - 1) ? setX(0) : setX(x - 100);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      goRight();
+    }, 10000);
+    return () => clearInterval(timer);
+  }, [articles, x, setX]);
+
   const formatNewsTime = (postTime) => {
-    let fullTimeArr = new Date(postTime).toString().split(' ');
+    let fullTimeArr = new Date(postTime).toString().split(" ");
     let date = `${fullTimeArr[2]} ${fullTimeArr[1]}, ${fullTimeArr[3]}  `;
     let timeArr = fullTimeArr[4].split(":");
     let meridian = "AM";
-    if(timeArr[0] > 12){
+    if (timeArr[0] > 12) {
       timeArr[0] -= 12;
-      meridian = "PM"
+      meridian = "PM";
     }
     let timeString = `${timeArr[0]}:${timeArr[1]} ${meridian}`;
     return `${date}  ${timeString}`;
-  }
+  };
 
   return (
     <div className={classes.NewsUpdate}>
@@ -64,9 +63,11 @@ const newsUpdate = () => {
               <div className={classes.NewsInfo}>
                 <span>News & Updates</span>
                 <div className={classes.NewsTitle}>{article.title}</div>
-                <div className={classes.NewsTime}>Posted on: {formatNewsTime(article.publishedAt)}</div>
+                <div className={classes.NewsTime}>
+                  Posted on: {formatNewsTime(article.publishedAt)}
+                </div>
                 <div className={classes.NewsDesc}>
-                  {article.description.substring(0, 100)}. . .
+                  {article.description ?  article.description.substring(0, 100).concat('. . .') : ' '}
                   <br />
                   <span>
                     <a href={article.url}>

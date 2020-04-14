@@ -6,7 +6,7 @@ import WorldMap from "./WorldMap/WorldMap";
 import SpreadTrends from "./SpreadTrends/SpreadTrends";
 import TwitterFeeds from '../../components/TwitterFeeds/TwitterFeeds';
 import NewsUpdate from './NewsUpdate/NewsUpdate';
-import Card from "../../shared/Card/Card";
+import RecoveryRatio from './RecoveryRatio/RecoveryRatio';
 
 const home = () => {
   return (
@@ -27,7 +27,7 @@ const home = () => {
 
           <div className={classes.RightMain}>
             <div className={classes.RatioNFeeds}>
-              <Card> Some text</Card>
+              <RecoveryRatio />
               <TwitterFeeds />
             </div>
           </div>
