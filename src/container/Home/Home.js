@@ -8,7 +8,10 @@ import TwitterFeeds from '../../components/TwitterFeeds/TwitterFeeds';
 import NewsUpdate from './NewsUpdate/NewsUpdate';
 import RecoveryRatio from './RecoveryRatio/RecoveryRatio';
 
-const home = () => {
+
+
+const Home = (props) => {
+ 
   return (
     <div className={classes.Home}>
       <div className={classes.Container}>
@@ -37,4 +40,5 @@ const home = () => {
   );
 };
 
-export default home;
+
+export default Home;

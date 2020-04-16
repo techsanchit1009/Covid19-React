@@ -22,6 +22,7 @@ a{
   display: flex;
   min-width: 100%;
   transition: 0.5s;
+  padding-top: 1rem;
 }
 
 .NewsTitle{

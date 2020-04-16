@@ -3,7 +3,7 @@ import Card from "../../../../shared/Card/Card";
 import classes from "./Country.css";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-const country = (props) => {
+const Country = (props) => {
 
   const formatCases = (cases) => {
     return (cases/1000).toFixed(1);
@@ -31,4 +31,4 @@ const country = (props) => {
   );
 };
 
-export default country;
+export default Country;

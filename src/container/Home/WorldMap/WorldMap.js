@@ -1,35 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import mapData from "./mapData";
 import Card from "../../../shared/Card/Card";
 import classes from "./WorldMap.css";
-import axios from "axios";
+import { connect } from 'react-redux';
+
 
 require("highcharts/modules/map")(Highcharts);
 
-const worldMap = () => {
-  const [countriesArray, setCountriesArray] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://corona.lmao.ninja/countries?sort=country")
-      .then((response) => {
-        let convertedArray = [];
-        response.data.map((country) => {
-          if (country.countryInfo.iso2) {
-            // eslint-disable-next-line
-            let countryArray = new Array(
-              country.countryInfo.iso2.toLowerCase(),
-              country.cases
-            );
-            convertedArray.push(countryArray);
-          }
-          return convertedArray;
-        });
-        setCountriesArray(convertedArray);
-      });
-  }, []);
+const WorldMap = (props) => {
 
   const mapOptions = {
     chart: {
@@ -57,7 +37,7 @@ const worldMap = () => {
       {
         mapData: mapData,
         name: "Country",
-        data: countriesArray,
+        data: props.worldMapData,
       },
     ],
   };
@@ -88,4 +68,10 @@ const worldMap = () => {
   );
 };
 
-export default worldMap;
+const mapStateToProps = state => {
+  return {
+    worldMapData: state.casesData.worldMapData
+  }
+};
+
+export default connect(mapStateToProps)(WorldMap);

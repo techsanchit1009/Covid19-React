@@ -5,7 +5,7 @@ import { FaTwitter } from "react-icons/fa";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 
-const twitterFeeds = () => {
+const TwitterFeeds = () => {
   let twitterHandlers = ['WHO','PMOIndia','realDonaldTrump','TOIIndiaNews','ABPNews'];
   return (
     <div className={classes.TwitterFeeds}>
@@ -32,4 +32,4 @@ const twitterFeeds = () => {
   );
 };
 
-export default twitterFeeds;
+export default TwitterFeeds;

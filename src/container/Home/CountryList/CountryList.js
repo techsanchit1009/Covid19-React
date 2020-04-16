@@ -1,34 +1,30 @@
 import React, { useEffect, useState } from "react";
 import searchIcon from "../../../assets/search.svg";
 import Card from "../../../shared/Card/Card";
-import axios from "axios";
 import Country from "./Country/Country";
+import * as countryAction from '../../../store/actions/fetchByCountry';
 import classes from "./CountryList.css";
+import { connect } from "react-redux";
 
-const countryList = () => {
-  const [countries, setCountries] = useState([]);
+const CountryList = (props) => {
   const [loading, setLoading] = useState(false);
   const [searchFilter, setSearchFilter] = useState("");
   const [filteredCountries, setFilteredCountries] = useState([]);
 
   useEffect(() => {
-    setLoading(true);
-    axios.get("https://corona.lmao.ninja/countries?sort=country").then((response) => {
-      setLoading(false);
-      let fetchedData = response.data.filter(
-        (country) => country.cases > 10
-      ).sort((a, b) => b.cases - a.cases);
-      setCountries(fetchedData);
-    });
-  }, []);
+    console.log('some text');
+    props.onFetchCountry();
+  }, [props.onFetchCountry]);
+
+  
 
   //  Searching work
   useEffect(() => {
-    let updatedCountries = countries.filter((countryIter) => {
+    let updatedCountries = props.countryList.filter((countryIter) => {
       return countryIter.country.toLowerCase().includes(searchFilter.toLowerCase());
     });
     setFilteredCountries(updatedCountries);
-  }, [searchFilter, countries]);
+  }, [searchFilter, props.countryList]);
   //---------------------
 
   const generateFlag = (countryCode) => {
@@ -71,4 +67,16 @@ const countryList = () => {
   );
 };
 
-export default countryList;
+const mapStateToProps = state => {
+  return {
+    countryList: state.casesData.countryList
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onFetchCountry: () => dispatch(countryAction.initFetchByCountry())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CountryList);

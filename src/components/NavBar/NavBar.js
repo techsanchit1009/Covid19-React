@@ -3,7 +3,7 @@ import NavItems from "./NavItems/NavItems";
 import classes from "./NavBar.css";
 
 
-const navBar = () => {
+const NavBar = () => {
   return (
     <div className={classes.NavBar}>
       <div className={classes.Container}>
@@ -12,4 +12,4 @@ const navBar = () => {
     </div>
   );
 };
-export default navBar;
+export default NavBar;

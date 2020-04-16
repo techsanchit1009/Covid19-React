@@ -1,38 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Card from "../../../shared/Card/Card";
-import axios from "axios";
 import { FaChevronRight, FaChevronLeft, FaArrowRight } from "react-icons/fa";
 import newsLogo from "../../../assets/news_update.svg";
+import { connect } from "react-redux";
+import * as newsAction from '../../../store/actions/fetchNews';
 import classes from "./NewsUpdate.css";
 
-const newsUpdate = () => {
-  const [articles, setArticles] = useState([]);
+
+const NewsUpdate = (props) => {
   const [x, setX] = useState(0);
 
-  const api_key = "c6a1adbb29f74f2eb5a2a5c54c6f51da";
   useEffect(() => {
-    axios
-      .get(
-        `http://newsapi.org/v2/top-headlines?q=COVID&country=in&apiKey=${api_key}`
-      )
-      .then((response) => {
-        let fetchedNewsArticles = response.data.articles.slice(0, 10);
-        console.log(fetchedNewsArticles);
-        setArticles(fetchedNewsArticles);
-      });
-  }, []);
+    props.onFetchNews();
+  }, [props.onFetchNews]);
 
   const goLeft = () =>
-    x === 0 ? setX(-100 * (articles.length - 1)) : setX(x + 100);
+    x === 0 ? setX(-100 * (props.newsArray.length - 1)) : setX(x + 100);
   const goRight = () =>
-    x === -100 * (articles.length - 1) ? setX(0) : setX(x - 100);
+    x === -100 * (props.newsArray.length - 1) ? setX(0) : setX(x - 100);
 
   useEffect(() => {
     const timer = setInterval(() => {
       goRight();
     }, 10000);
     return () => clearInterval(timer);
-  }, [articles, x, setX]);
+  }, [props.newsArray, x, setX]);
 
   const formatNewsTime = (postTime) => {
     let fullTimeArr = new Date(postTime).toString().split(" ");
@@ -51,7 +43,7 @@ const newsUpdate = () => {
     <div className={classes.NewsUpdate}>
       <Card>
         <div className={classes.Slider}>
-          {articles.map((article, index) => (
+          {props.newsArray.map((article, index) => (
             <div
               className={classes.NewsCard}
               key={index}
@@ -96,4 +88,16 @@ const newsUpdate = () => {
   );
 };
 
-export default newsUpdate;
+const mapStateToProps = state => {
+  return{
+    newsArray: state.newsData.newsArray
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return{
+    onFetchNews: () => dispatch(newsAction.initFetchNews())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewsUpdate);

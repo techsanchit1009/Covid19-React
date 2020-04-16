@@ -4,7 +4,7 @@ import Logo from '../Logo/Logo';
 import NavItem from './NavItem/NavItem';
 import classes from './NavItems.css';
 
-const navItems = () => {
+const NavItems = () => {
   return (
     <React.Fragment>
       <Link to="/"><Logo /></Link>
@@ -17,4 +17,4 @@ const navItems = () => {
   
   );
 }
-export default navItems;
+export default NavItems;

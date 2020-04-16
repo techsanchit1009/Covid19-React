@@ -1,26 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Card from "../../../shared/Card/Card";
 import classes from "./RecoveryRatio.css";
-import axios from "axios";
+import { connect } from "react-redux";
 
-const recoveryRatio = () => {
-  const [totalCases, setTotalCases] = useState({});
-  useEffect(() => {
-    axios.get("https://corona.lmao.ninja/all").then((response) => {
-      let fetchedResponse = response.data;
-      let casesObj = {
-        activeCases: fetchedResponse.cases,
-        recovered: fetchedResponse.recovered,
-      };
-      setTotalCases(casesObj);
-    });
-  }, []);
 
+const RecoveryRatio = (props) => {
+  
+ 
   const formatCases = (cases) => {
     return (cases/1000).toFixed(1);
   }
+  
 
-  const percent = ((totalCases.recovered / totalCases.activeCases) * 100).toFixed(1);
+  let percent;
+  let affectedCases, recoveredCases;
+  if(props.totalCases.length){
+    affectedCases = props.totalCases[0].casesCount;
+    recoveredCases = props.totalCases[1].casesCount;
+    percent = ((recoveredCases / affectedCases) * 100).toFixed(1);  
+  } 
+  
   return (
     <Card>
       <div className={classes.RecoveryRatio}>
@@ -47,10 +46,10 @@ const recoveryRatio = () => {
         </div>
         <div className={classes.CaseCount}>
             <div className={classes.AffectedCount}>
-              {formatCases(totalCases.activeCases)}k Affected
+              {formatCases(affectedCases)}k Affected
               </div>
           <div className={classes.RecoveredCount}>
-            {formatCases(totalCases.recovered)}k Recovered
+            {formatCases(recoveredCases)}k Recovered
             </div>
         </div>
       </div>
@@ -58,4 +57,11 @@ const recoveryRatio = () => {
   );
 };
 
-export default recoveryRatio;
+const mapStateToProps = state => {
+  return {
+    totalCases: state.casesData.totalCases
+  }
+};
+
+
+export default connect(mapStateToProps)(RecoveryRatio);
