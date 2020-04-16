@@ -3,16 +3,11 @@ import Card from "../../../shared/Card/Card";
 import { FaChevronRight, FaChevronLeft, FaArrowRight } from "react-icons/fa";
 import newsLogo from "../../../assets/news_update.svg";
 import { connect } from "react-redux";
-import * as newsAction from '../../../store/actions/fetchNews';
 import classes from "./NewsUpdate.css";
 
 
 const NewsUpdate = (props) => {
   const [x, setX] = useState(0);
-
-  useEffect(() => {
-    props.onFetchNews();
-  }, [props.onFetchNews]);
 
   const goLeft = () =>
     x === 0 ? setX(-100 * (props.newsArray.length - 1)) : setX(x + 100);
@@ -94,10 +89,5 @@ const mapStateToProps = state => {
   }
 };
 
-const mapDispatchToProps = dispatch => {
-  return{
-    onFetchNews: () => dispatch(newsAction.initFetchNews())
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewsUpdate);
+export default connect(mapStateToProps)(NewsUpdate);

@@ -1,16 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Card from "../../../shared/Card/Card";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import { AreaChart, Area, Tooltip, XAxis } from "recharts";
 import classes from "./CurrentSituations.css";
-import * as timelineAction from '../../../store/actions/fetchByTimeline';
 
 const CurrentSituations = (props) => {
-
-  useEffect(() => {
-    props.onFetchTimeline();
-  }, [props.onFetchTimeline]);
 
   const formatCases = (caseCount) => {
     return caseCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -45,11 +40,13 @@ const CurrentSituations = (props) => {
                   {printCaretSign(item.heading)}
                 </span>
               </span>
-              <span className={classes.CaseCount}>{formatCases(item.casesCount)}</span>
+              <span className={classes.CaseCount}>
+                {formatCases(item.casesCount)}
+              </span>
             </span>
             <span className={classes.CaseGraph}>
-              <AreaChart width={72} height={55} data={props.splicedData}>
-                <Tooltip viewBox={{width: 100, height: 100}}/>
+              <AreaChart width={72} height={60} data={props.splicedData}>
+                <Tooltip viewBox={{ width: 100, height: 100 }} />
                 <defs>
                   <linearGradient id="colorGreen" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="#06BA90" stopOpacity={0.8} />
@@ -66,9 +63,13 @@ const CurrentSituations = (props) => {
                   stroke={item.heading === "Recovered" ? "#06BA90" : "#FF6C75"}
                   strokeWidth={3}
                   dot={false}
-                  fill={item.heading === "Recovered" ? "url(#colorGreen)" : "url(#colorRed)"}
+                  fill={
+                    item.heading === "Recovered"
+                      ? "url(#colorGreen)"
+                      : "url(#colorRed)"
+                  }
                 />
-                <XAxis dataKey="date" hide={true}/>
+                <XAxis dataKey="date" hide={true} />
               </AreaChart>
             </span>
           </div>
@@ -78,17 +79,13 @@ const CurrentSituations = (props) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     totalCasesCount: state.casesData.totalCases,
-    splicedData: state.casesData.splicedData
-  }
+    splicedData: state.casesData.splicedData,
+    loadingCases: state.casesData.loadingCases
+  };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onFetchTimeline: () => dispatch(timelineAction.initFetchByTimeline())
-  }
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(CurrentSituations);
+export default connect(mapStateToProps)(CurrentSituations);

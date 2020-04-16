@@ -6,11 +6,18 @@ const initialState = {
   splicedData: [],
   countryList: [],
   worldMapData: [],
+  loadingCases: false
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.FETCH_BY_TIMELINE:
+    case actionTypes.FETCH_BY_TIMELINE_START:
+       return {
+        ...state,
+        loadingCases: true
+       }
+
+    case actionTypes.FETCH_BY_TIMELINE_SUCCESS:
       const countryList = Object.keys(action.fetchedCasesData);
       const totalDays = action.fetchedCasesData[countryList[0]].length;
       const totalCountries = countryList.length;
@@ -56,9 +63,16 @@ const reducer = (state = initialState, action) => {
         totalCases: updatedCases,
         casesByTimeline: finalData,
         splicedData: finalData.slice(-10),
+        loadingCases: false
       };
 
-    case actionTypes.FETCH_BY_COUNTRY:
+    case actionTypes.FETCH_BY_COUNTRY_START:
+      return{
+        ...state,
+        loadingCases: true
+      }
+
+    case actionTypes.FETCH_BY_COUNTRY_SUCCESS:
       const sortedCountryList = action.fetchedCountryData
         .filter((country) => country.cases > 10)
         .sort((a, b) => b.cases - a.cases);
@@ -78,7 +92,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         countryList: sortedCountryList,
-        worldMapData: worldMapArray
+        worldMapData: worldMapArray,
+        loadingCases: false
       };
 
     default:
