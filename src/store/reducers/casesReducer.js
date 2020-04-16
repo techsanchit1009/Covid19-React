@@ -6,7 +6,8 @@ const initialState = {
   splicedData: [],
   countryList: [],
   worldMapData: [],
-  loadingCases: false
+  loadingCases: false,
+  loadingCountries: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -69,7 +70,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.FETCH_BY_COUNTRY_START:
       return{
         ...state,
-        loadingCases: true
+        loadingCountries: true
       }
 
     case actionTypes.FETCH_BY_COUNTRY_SUCCESS:
@@ -93,7 +94,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         countryList: sortedCountryList,
         worldMapData: worldMapArray,
-        loadingCases: false
+        loadingCountries: false
       };
 
     default:

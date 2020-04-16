@@ -28,33 +28,35 @@ const Home = (props) => {
   }, [props.onFetchTimeline, props.onFetchCountry, props.onFetchNews]);
 
   let home = (
-    <div className={classes.Container}>
-      <div className={classes.Main}>
-        <div className={classes.LeftMain}>
-          <CurrentSitutations />
-          <div className={classes.ListnMap}>
-            <CountryList />
-            <WorldMap />
+    <div className={classes.Home}>
+      <div className={classes.Container}>
+        <div className={classes.Main}>
+          <div className={classes.LeftMain}>
+            <CurrentSitutations />
+            <div className={classes.ListnMap}>
+              <CountryList />
+              <WorldMap />
+            </div>
+            <div className={classes.GraphnNews}>
+              <SpreadTrends />
+              <NewsUpdate />
+            </div>
           </div>
-          <div className={classes.GraphnNews}>
-            <SpreadTrends />
-            <NewsUpdate />
-          </div>
-        </div>
 
-        <div className={classes.RightMain}>
-          <div className={classes.RatioNFeeds}>
-            <RecoveryRatio />
-            <TwitterFeeds />
+          <div className={classes.RightMain}>
+            <div className={classes.RatioNFeeds}>
+              <RecoveryRatio />
+              <TwitterFeeds />
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
   return (
-    <div className={classes.Home}>
+    <React.Fragment>
       {props.loadingCases && props.loadingNews ? <Spinner /> : home}
-    </div>
+    </React.Fragment>
   );
 };
 

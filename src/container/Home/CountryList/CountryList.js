@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import searchIcon from "../../../assets/search.svg";
 import Card from "../../../shared/Card/Card";
 import Country from "./Country/Country";
 import classes from "./CountryList.css";
-import { connect } from "react-redux";
 
 const CountryList = (props) => {
   const [searchFilter, setSearchFilter] = useState("");
@@ -41,7 +41,7 @@ const CountryList = (props) => {
           />
         </div>
         <div className={classes.List}>
-          {filteredCountries.length >= 1 && !props.loadingCases ? (
+          {filteredCountries.length >= 1 && !props.loadingCountries ? (
             filteredCountries.map((countryIter) => (
               <Country
                 key={countryIter.countryInfo.iso2}
@@ -52,7 +52,7 @@ const CountryList = (props) => {
               />
             ))
           ) : (
-            <p>{props.loadingCases ? "Loading..." : "Sorry, No result found!"}</p>
+            <p>{props.loadingCountries ? "Loading..." : "Sorry, No result found!"}</p>
           )}
         </div>
       </Card>
@@ -64,7 +64,7 @@ const mapStateToProps = state => {
   // console.log(state);
   return {
     countryList: state.casesData.countryList,
-    loadingCases: state.casesData.loadingCases
+    loadingCountries: state.casesData.loadingCountries
   };
 };
 
