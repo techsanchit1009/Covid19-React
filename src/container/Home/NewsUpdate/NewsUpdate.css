@@ -1,12 +1,13 @@
 a{
   text-decoration: none;
   color: red;
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: bold;
 }
 .NewsUpdate{
   flex: 1;
   margin-left: 1rem;
+  max-width: 40vw;
 }
 
 .Slider{
@@ -15,19 +16,20 @@ a{
   overflow-x: hidden;
   position: relative;
   padding: 0 0.3rem;
-  width: 40vw;
+  max-width: 100%;
 }
 
 .NewsCard{
   display: flex;
   min-width: 100%;
   transition: 0.5s;
+  align-items: center;
 }
 
 .NewsTitle{
   font-weight: bold;
   margin: 1rem 0;
-  font-size: 16px;
+  font-size: 1rem;
   color: rgb(27, 26, 26);
 }
 
@@ -57,7 +59,7 @@ a{
 }
 
 .NewsDesc{
-  font-size: 13px;
+  font-size: 0.8rem;
 }
 
 .NewsDesc>span{
@@ -93,4 +95,15 @@ a{
 
 .GoRight{
   right: 0;
+}
+
+@media (max-width: 600px){
+  .NewsUpdate{
+    max-width: 95vw;
+    margin-left: 0;
+    margin-bottom: 2%;
+  }
+  .NewsLogo{
+    display: none;
+  }
 }

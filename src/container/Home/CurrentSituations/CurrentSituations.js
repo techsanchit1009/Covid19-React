@@ -6,7 +6,6 @@ import { AreaChart, Area, Tooltip, XAxis } from "recharts";
 import classes from "./CurrentSituations.css";
 
 const CurrentSituations = (props) => {
-
   const formatCases = (caseCount) => {
     return caseCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
@@ -27,53 +26,58 @@ const CurrentSituations = (props) => {
     return caretSign;
   };
 
+  console.log(props);
 
   return (
     <div className={classes.CurrentSituations}>
       {props.totalCasesCount.map((item) => (
-        <Card key={item.heading}>
-          <div className={classes.CaseCard}>
-            <span>
-              <span className={classes.CaseHeading}>
-                <span>{item.heading}</span>
-                <span className={classes.CaretSign}>
-                  {printCaretSign(item.heading)}
+        <div key={item.heading} className={classes.CardWrapper}>
+          <Card>
+            <div className={classes.CaseCard}>
+              <div>
+                <span className={classes.CaseHeading}>
+                  <span>{item.heading}</span>
+                  <span className={classes.CaretSign}>
+                    {printCaretSign(item.heading)}
+                  </span>
                 </span>
-              </span>
-              <span className={classes.CaseCount}>
-                {formatCases(item.casesCount)}
-              </span>
-            </span>
-            <span className={classes.CaseGraph}>
-              <AreaChart width={72} height={60} data={props.splicedData}>
-                <Tooltip viewBox={{ width: 100, height: 100 }} />
-                <defs>
-                  <linearGradient id="colorGreen" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#06BA90" stopOpacity={0.8} />
-                    <stop offset="60%" stopColor="#06BA90" stopOpacity={0} />
-                  </linearGradient>
-                  <linearGradient id="colorRed" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#FF6C75" stopOpacity={0.8} />
-                    <stop offset="60%" stopColor="#FF6C75" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <Area
-                  type="linear"
-                  dataKey={item.heading}
-                  stroke={item.heading === "Recovered" ? "#06BA90" : "#FF6C75"}
-                  strokeWidth={3}
-                  dot={false}
-                  fill={
-                    item.heading === "Recovered"
-                      ? "url(#colorGreen)"
-                      : "url(#colorRed)"
-                  }
-                />
-                <XAxis dataKey="date" hide={true} />
-              </AreaChart>
-            </span>
-          </div>
-        </Card>
+                <span className={classes.CaseCount}>
+                  {formatCases(item.casesCount)}
+                </span>
+              </div>
+              <div className={classes.CaseGraph}>
+                <AreaChart width={72} height={60} data={props.splicedData}>
+                  <Tooltip viewBox={{ width: 100, height: 100 }} />
+                  <defs>
+                    <linearGradient id="colorGreen" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#06BA90" stopOpacity={0.8} />
+                      <stop offset="60%" stopColor="#06BA90" stopOpacity={0} />
+                    </linearGradient>
+                    <linearGradient id="colorRed" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#FF6C75" stopOpacity={0.8} />
+                      <stop offset="60%" stopColor="#FF6C75" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <Area
+                    type="linear"
+                    dataKey={item.heading}
+                    stroke={
+                      item.heading === "Recovered" ? "#06BA90" : "#FF6C75"
+                    }
+                    strokeWidth={3}
+                    dot={false}
+                    fill={
+                      item.heading === "Recovered"
+                        ? "url(#colorGreen)"
+                        : "url(#colorRed)"
+                    }
+                  />
+                  <XAxis dataKey="date" hide={true} />
+                </AreaChart>
+              </div>
+            </div>
+          </Card>
+        </div>
       ))}
     </div>
   );
@@ -83,9 +87,8 @@ const mapStateToProps = (state) => {
   return {
     totalCasesCount: state.casesData.totalCases,
     splicedData: state.casesData.splicedData,
-    loadingCases: state.casesData.loadingCases
+    loadingCases: state.casesData.loadingCases,
   };
 };
-
 
 export default connect(mapStateToProps)(CurrentSituations);

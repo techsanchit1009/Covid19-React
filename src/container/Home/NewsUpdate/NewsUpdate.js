@@ -3,6 +3,7 @@ import Card from "../../../shared/Card/Card";
 import { FaChevronRight, FaChevronLeft, FaArrowRight } from "react-icons/fa";
 import newsLogo from "../../../assets/news_update.svg";
 import { connect } from "react-redux";
+import Spinner from '../../../components/Spinner/Spinner';
 import classes from "./NewsUpdate.css";
 
 
@@ -34,8 +35,7 @@ const NewsUpdate = (props) => {
     return `${date}  ${timeString}`;
   };
 
-  return (
-    <div className={classes.NewsUpdate}>
+  const news = (
       <Card>
         <div className={classes.Slider}>
           {props.newsArray.map((article, index) => (
@@ -44,12 +44,12 @@ const NewsUpdate = (props) => {
               key={index}
               style={{ transform: `translateX(${x}%)` }}
             >
-              <div>
+              <div className={classes.NewsLogo}>
                 <img src={newsLogo} height="155px" width="145px" alt={index} />
               </div>
               <div className={classes.NewsInfo}>
                 <span>News & Updates</span>
-                <div className={classes.NewsTitle}>{article.title}</div>
+                <div className={classes.NewsTitle}>{article.title.substring(0, 130).concat('. . .')}</div>
                 <div className={classes.NewsTime}>
                   Posted on: {formatNewsTime(article.publishedAt)}
                 </div>
@@ -79,13 +79,19 @@ const NewsUpdate = (props) => {
           </button>
         </div>
       </Card>
+  );
+
+  return (
+    <div className={classes.NewsUpdate}>
+      {props.loadingNews ? <Spinner /> : news}
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return{
-    newsArray: state.newsData.newsArray
+    newsArray: state.newsData.newsArray,
+    loadingNews: state.newsData.loadingNews
   }
 };
 

@@ -38,3 +38,10 @@
   background-color: #FFC4C6;
   border-radius: 2px;
 }
+
+
+@media (max-width: 600px){
+  .WorldMap{
+    display: none;
+  }
+}

@@ -2,6 +2,7 @@
   flex:1;
   padding: 1rem 0;
   text-align: center;
+  position: relative;
 }
 
 .Heading{
@@ -10,15 +11,15 @@
 }
 
 .ProgressBarArea{
-  position: relative;
   display: flex;
   align-items: center;
 }
 
 .ProgressBarArea svg{
-  height: 200px;
-  width: 200px;
-  transform: translateX(30px);
+  margin: auto;
+  height: 12rem;
+  width: 12rem;
+  /* transform: translateX(1.5rem); */
 }
 
 circle{
@@ -43,7 +44,8 @@ circle{
 .PercentBox{
   position: absolute;
   display: flex;
-  left: 80px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: white;
   height: 100px;
   width: 100px;

@@ -1,16 +1,20 @@
 .CurrentSituations {
   display: flex;
-  max-width: 75vw;
   justify-content: space-between;
-  margin: 1rem 0;
   box-sizing: border-box;
   flex-wrap: wrap;
+}
+
+.CardWrapper{
+  margin: 2% 0;
+  /* flex: 1; */
 }
 
 
 .CaseCard{
   display: flex;
-  flex: 1;
+  /* flex: 1; */
+  justify-content: space-between;
   padding: 1.2rem;
 }
 
@@ -19,22 +23,28 @@
   align-items: center;
   font-weight: bold;
   color: rgb(80, 78, 78);
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 .CaretSign{
   margin-left: 1px;
-  font-size: 18px;
+  font-size: 1.1rem;
 }
 
 .CaseCount{
   display: block;
-  font-size: 22px;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
-.CaseGraph{
-  margin-left: 0.4rem;
-  height: 60px;
-  width: 80px;
+
+@media (max-width: 600px){
+  .CurrentSituations{
+    max-width: 100%;
+  }
+
+  .CardWrapper{
+    flex: 1;
+    margin-right: 1%;  
+  }
 }

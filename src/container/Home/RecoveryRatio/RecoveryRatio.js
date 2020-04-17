@@ -3,7 +3,6 @@ import Card from "../../../shared/Card/Card";
 import classes from "./RecoveryRatio.css";
 import { connect } from "react-redux";
 
-
 const RecoveryRatio = (props) => {
  
   const formatCases = (cases) => {

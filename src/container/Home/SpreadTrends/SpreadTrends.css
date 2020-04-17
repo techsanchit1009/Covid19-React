@@ -42,3 +42,10 @@
   color: white;
   border-radius: 5px;
 }
+
+@media (max-width: 600px){
+  .SpreadTrends{
+    zoom: 75%;
+    margin-right: 2%;
+  }
+}
