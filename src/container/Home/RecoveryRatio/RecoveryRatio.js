@@ -5,12 +5,10 @@ import { connect } from "react-redux";
 
 
 const RecoveryRatio = (props) => {
-  
  
   const formatCases = (cases) => {
     return (cases/1000).toFixed(1);
   }
-  
 
   let percent;
   let affectedCases, recoveredCases;

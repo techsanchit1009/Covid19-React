@@ -17,8 +17,13 @@ export const fetchByCountryStart = () => {
 export const initFetchByCountry = () => {
   return dispatch =>{
     dispatch(fetchByCountryStart());
-    axios.get("https://corona.lmao.ninja/countries").then((response) => {
+    axios.get("https://corona.lmao.ninja/v2/countries").then((response) => {
       dispatch(fetchByCountrySuccess(response.data))
     });
+    setInterval(() => {
+      axios.get("https://corona.lmao.ninja/v2/countries").then((response) => {
+      dispatch(fetchByCountrySuccess(response.data))
+    });
+    }, 10 * 60000);
   };
 };

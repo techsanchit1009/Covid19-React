@@ -15,16 +15,17 @@ import Spinner from "../../components/Spinner/Spinner";
 
 const Home = (props) => {
   useEffect(() => {
+    console.log('useEffect called');
     props.onFetchTimeline();
     props.onFetchCountry();
     props.onFetchNews();
-    const dataUpdater = setInterval(() => {
-      props.onFetchTimeline();
-      props.onFetchCountry();
-      props.onFetchNews();
-    }, 10 * 60000);
+    // const dataUpdater = setInterval(() => {
+    //   props.onFetchTimeline();
+    //   props.onFetchCountry();
+    //   props.onFetchNews();
+    // }, 5000);
 
-    return () => clearInterval(dataUpdater);
+    // return () => clearInterval(dataUpdater);
   }, [props.onFetchTimeline, props.onFetchCountry, props.onFetchNews]);
 
   let home = (

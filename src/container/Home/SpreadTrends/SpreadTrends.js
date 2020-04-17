@@ -54,6 +54,7 @@ const SpreadTrends = props => {
               dataKey={graphType}
               stroke={graphType==='Recovered' ? "#06BA90" : "#FF6C75" }
               strokeWidth={2}
+              isAnimationActive={true}
               dot={false}
             />
             <XAxis dataKey="date" tick={{ fontSize: "12px" }} padding={{ right: 10 }}/>

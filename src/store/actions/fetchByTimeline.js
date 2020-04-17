@@ -31,5 +31,16 @@ export const initFetchByTimeline = () => {
       .catch(error => {
         dispatch(fetchByTimelineFailed());
       });
+
+      setInterval(() => {
+        axios
+        .get('https://pomber.github.io/covid19/timeseries.json')
+        .then(response => {
+          dispatch(fetchByTimelineSuccess(response.data));
+        })
+        .catch(error => {
+          dispatch(fetchByTimelineFailed());
+        });
+      }, 10 * 60000);
   };
 };

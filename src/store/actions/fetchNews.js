@@ -26,5 +26,15 @@ export const initFetchNews = () => {
         let fetchedNewsArticles = response.data.articles.slice(0, 10);
         dispatch(fetchNewsSuccess(fetchedNewsArticles));
       });
+    setInterval(() => {
+      axios
+      .get(
+        `http://newsapi.org/v2/top-headlines?q=COVID&country=in&apiKey=${api_key}`
+      )
+      .then((response) => {
+        let fetchedNewsArticles = response.data.articles.slice(0, 10);
+        dispatch(fetchNewsSuccess(fetchedNewsArticles));
+      });
+    }, 60 * 60000);
   };
 };
