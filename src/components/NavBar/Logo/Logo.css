@@ -1,8 +1,6 @@
 .Logo{
   display: flex;
   align-items: center;
-  position: absolute;
-  top: 5px;
 }
 
 .LogoText {
@@ -11,4 +9,11 @@
   font-size: 22px;
   margin: 0 0.5rem;
   font-weight: bold;
+}
+
+@media (max-width: 600px){
+  /* .Logo{
+    left: 50%;
+    transform: translate(-50%);
+  } */
 }

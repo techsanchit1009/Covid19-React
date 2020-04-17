@@ -47,7 +47,7 @@ const CurrentSituations = (props) => {
               </div>
               <div className={classes.CaseGraph}>
                 <AreaChart width={72} height={60} data={props.splicedData}>
-                  <Tooltip viewBox={{ width: 100, height: 100 }} />
+                  <Tooltip />
                   <defs>
                     <linearGradient id="colorGreen" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="#06BA90" stopOpacity={0.8} />

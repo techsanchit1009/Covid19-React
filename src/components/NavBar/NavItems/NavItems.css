@@ -6,3 +6,9 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+@media (max-width: 600px){
+  .NavItems{
+    flex-direction: column;
+  }
+}

@@ -26,6 +26,10 @@
   font-size: 0.9rem;
 }
 
+.CaseGraph{
+  align-self: center;
+}
+
 .CaretSign{
   margin-left: 1px;
   font-size: 1.1rem;

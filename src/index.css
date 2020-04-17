@@ -6,6 +6,10 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+a{
+  text-decoration: none;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }

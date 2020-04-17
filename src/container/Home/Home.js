@@ -19,15 +19,8 @@ const Home = (props) => {
     props.onFetchTimeline();
     props.onFetchCountry();
     props.onFetchNews();
-    // const dataUpdater = setInterval(() => {
-    //   props.onFetchTimeline();
-    //   props.onFetchCountry();
-    //   props.onFetchNews();
-    // }, 5000);
-
-    // return () => clearInterval(dataUpdater);
   }, [props.onFetchTimeline, props.onFetchCountry, props.onFetchNews]);
-
+ 
   let home = (
     <div className={classes.Home}>
       <div className={classes.Container}>

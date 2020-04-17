@@ -26,7 +26,13 @@
 .Active {
   padding: 1rem 0;
   border-bottom: 5px solid red;
-  color: red;
 }
+
+@media (max-width: 600px){
+  .Active{
+    border-bottom: 5px solid transparent;
+  }
+}
+
 
 

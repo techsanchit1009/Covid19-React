@@ -1,12 +1,54 @@
 .NavBar {
   background-color: #fff;
   box-shadow: 0px 0px 8px #bbb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .Container{
+  position: relative;
   max-width: 95vw;
-  margin: auto;
   display: flex;
+  margin: auto;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.LogoWrapper{
+  position: absolute;
+  top: 5px;
+}
+
+.NavMenu{
+  margin: auto;
+}
+
+.Bars{
+  display: none;
+}
+
+@media (max-width: 600px){
+  .Bars{
+    display: block;
+    padding: 1rem;
+    color: red;
+    font-size: 1.2rem;
+  }
+
+  .Bars:hover{
+    color: white;
+    background-color: red;
+  }
+
+  .NavMenu{
+    display: none;
+  }
+
+  .LogoWrapper{
+    position: relative;
+    margin: auto;
+    top: 0;
+    left: -5%;
+  }
 }
