@@ -9,7 +9,7 @@ import classes from "./NavBar.css";
 const NavBar = (props) => {
   return (
     <div className={classes.NavBar}>
-      <div className={classes.Container}>
+      <div className={classes.NavContainer}>
         <div className={classes.Bars}>
           <FaBars onClick={props.show}/>
         </div>

@@ -6,7 +6,7 @@
   z-index: 100;
 }
 
-.Container{
+.NavContainer{
   position: relative;
   max-width: 95vw;
   display: flex;

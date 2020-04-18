@@ -24,6 +24,6 @@ export const initFetchByCountry = () => {
       axios.get("https://corona.lmao.ninja/v2/countries").then((response) => {
       dispatch(fetchByCountrySuccess(response.data))
     });
-    }, 10 * 60000);
+    }, 60 * 60000);
   };
 };

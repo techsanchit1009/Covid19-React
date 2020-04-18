@@ -1,8 +1,3 @@
-.Container {
-  max-width: 95vw;
-  margin: auto;
-}
-
 .Main {
   display: flex;
   flex-wrap: wrap;

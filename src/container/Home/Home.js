@@ -7,6 +7,7 @@ import SpreadTrends from "./SpreadTrends/SpreadTrends";
 import TwitterFeeds from "../../components/TwitterFeeds/TwitterFeeds";
 import NewsUpdate from "./NewsUpdate/NewsUpdate";
 import RecoveryRatio from "./RecoveryRatio/RecoveryRatio";
+import Container from '../../shared/Container/Container';
 import classes from "./Home.css";
 import * as timelineAction from "../../store/actions/fetchByTimeline";
 import * as countryAction from "../../store/actions/fetchByCountry";
@@ -21,11 +22,18 @@ const Home = (props) => {
     props.onFetchTimeline();
     props.onFetchCountry();
     props.onFetchNews();
+
+    // setInterval(() => {
+    //   props.onFetchTotalCases();
+    //   props.onFetchTimeline();
+    //   props.onFetchCountry();
+    //   props.onFetchNews();
+    // }, 5000);
   }, [props.onFetchTotalCases, props.onFetchTimeline, props.onFetchCountry, props.onFetchNews]);
  
   let home = (
     <div className={classes.Home}>
-      <div className={classes.Container}>
+      <Container>
         <div className={classes.Main}>
           <div className={classes.LeftMain}>
             <CurrentSitutations
@@ -56,7 +64,7 @@ const Home = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
   return (

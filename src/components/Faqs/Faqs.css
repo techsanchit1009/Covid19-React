@@ -1,0 +1,18 @@
+.Faqs{
+  padding: 1rem 0;
+}
+.FaqsArea{
+  max-width: 70%;
+  margin: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #aaa;
+}
+
+.FaqHeading{
+  max-width: 70%;
+  margin: 1rem auto;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
