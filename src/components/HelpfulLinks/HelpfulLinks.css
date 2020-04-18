@@ -1,0 +1,70 @@
+.HelpfulLinks{
+  max-width: 60%;
+  margin: auto;
+  padding-bottom: 1rem;
+}
+
+.Heading{
+  text-align: center;
+  margin: 1rem 0;
+  letter-spacing: 2px;
+}
+
+.LinkBox{
+  padding: 1rem;
+  margin: 0.8rem 0;
+}
+
+.LinkTitle{
+  font-weight: bold;
+  color: rgb(83, 80, 80);
+}
+
+.Link{
+  padding: 0.3rem 0;
+}
+
+.Link a:hover{
+  background-color: rgb(247, 191, 185);
+  transition: all 0.3s ease;
+}
+
+.Link a{
+  text-decoration: none;
+  color: red;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+
+.VideoArea{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.VideoTitle{
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  color: rgb(126, 15, 15);
+}
+
+.Video{
+  position: relative;
+  width: 80%;
+  padding-bottom: 56.25%; 
+  height: 0;
+}
+.Video iframe{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+

@@ -45,6 +45,7 @@ padding: 0.3rem 0.5rem;
 .Open .FaqAnswer{
   opacity: 1;
   max-height: 10rem;
+  overflow-y: scroll;
   display: block;
   padding: 1.5%;
   text-align: justify;

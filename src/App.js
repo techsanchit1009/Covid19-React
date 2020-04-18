@@ -2,13 +2,12 @@ import React, { Suspense, useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./container/Home/Home";
 import Faqs from './components/Faqs/Faqs';
-import { Route, BrowserRouter, Switch } from "react-router-dom";
+import HelpfulLinks from './components/HelpfulLinks/HelpfulLinks';
+import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
 import classes from "./App.css";
 import SideDrawer from './components/SideDrawer/SideDrawer';
 
-// const Home = React.lazy(() => {
-//   return import("./container/Home/Home");
-// });
+// const Faqs = React.lazy(() => import("./components/Faqs/Faqs"));
 
 const app = () => {
   const [showSideDrawer, setShowSideDrawer] = useState(false);
@@ -25,7 +24,8 @@ const app = () => {
     <Switch>
       <Route path="/" exact render={() => <Home />} />
       <Route path="/faq" render={() => <Faqs />} />
-
+      <Route path="/helpful-links" render={() => <HelpfulLinks />} />
+      <Redirect to="/" />
     </Switch>
   );
   return (
