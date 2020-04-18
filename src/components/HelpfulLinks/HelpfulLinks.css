@@ -10,6 +10,8 @@
   letter-spacing: 2px;
 }
 
+
+
 .LinkBox{
   padding: 1rem;
   margin: 0.8rem 0;
@@ -25,7 +27,7 @@
 }
 
 .Link a:hover{
-  background-color: rgb(247, 191, 185);
+  background-color: rgb(228, 198, 195);
   transition: all 0.3s ease;
 }
 
@@ -67,4 +69,42 @@
 }
 
 
+/* Animation on Load */
+@keyframes fadeInUp {
+  from {
+      transform: translate3d(0,20px,0)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+      transform: translate3d(0,40px,0)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
+.HelpfulLinks {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both
+}
+
+
+.HelpfulLinks {
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+}
+
+/*-----------------------*/
 

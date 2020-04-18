@@ -34,6 +34,7 @@ const HelpfulLinks = () => {
           <h1>Helpful Links</h1>
         </div>
         {links.map((link) => (
+          <div className={classes.CardWrapper}>
           <Card>
             <div className={classes.LinkBox}>
               <div className={classes.LinkTitle}>
@@ -44,6 +45,7 @@ const HelpfulLinks = () => {
               </div>
             </div>
           </Card>
+          </div>
         ))}
         <div className={classes.VideoArea}>
           <div className={classes.VideoTitle}>
