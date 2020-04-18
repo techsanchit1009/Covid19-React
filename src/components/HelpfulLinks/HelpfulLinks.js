@@ -33,8 +33,8 @@ const HelpfulLinks = () => {
         <div className={classes.Heading}>
           <h1>Helpful Links</h1>
         </div>
-        {links.map((link) => (
-          <div className={classes.CardWrapper}>
+        {links.map((link, index) => (
+          <div key={index} className={classes.CardWrapper}>
           <Card>
             <div className={classes.LinkBox}>
               <div className={classes.LinkTitle}>
@@ -56,7 +56,7 @@ const HelpfulLinks = () => {
               width="450"
               height="250"
               src="https://www.youtube.com/embed/1APwq1df6Mw"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
