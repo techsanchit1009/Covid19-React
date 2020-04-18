@@ -41,31 +41,43 @@ const reducer = (state = initialState, action) => {
         groupedObj["Active Cases"] = totalCases - (totalRecovered + totalDeath);
         finalData.push(groupedObj);
       }
-      let updatedCases = [
-        {
-          heading: "Total Cases",
-          casesCount: finalData.slice(-1)[0]["Total Cases"],
-        },
-        {
-          heading: "Recovered",
-          casesCount: finalData.slice(-1)[0]["Recovered"],
-        },
-        {
-          heading: "Active Cases",
-          casesCount: finalData.slice(-1)[0]["Active Cases"],
-        },
-        {
-          heading: "Total Deaths",
-          casesCount: finalData.slice(-1)[0]["Total Deaths"],
-        },
-      ];
       return {
         ...state,
-        totalCases: updatedCases,
         casesByTimeline: finalData,
         splicedData: finalData.slice(-10),
         loadingCases: false
       };
+
+    case actionTypes.FETCH_TOTAL_CASES_START:
+      return{
+        ...state,
+        loadingCases: true
+      }
+
+    case actionTypes.FETCH_TOTAL_CASES_SUCCESS:
+      let updatedCases = [
+        {
+          heading: "Total Cases",
+          casesCount: action.fetchedTotalCases.cases,
+        },
+        {
+          heading: "Recovered",
+          casesCount: action.fetchedTotalCases.recovered
+        },
+        {
+          heading: "Active Cases",
+          casesCount: action.fetchedTotalCases.active,
+        },
+        {
+          heading: "Total Deaths",
+          casesCount: action.fetchedTotalCases.deaths,
+        },
+      ];
+      return{
+        ...state,
+        totalCases: updatedCases,
+        loadingCases: false
+      }
 
     case actionTypes.FETCH_BY_COUNTRY_START:
       return{

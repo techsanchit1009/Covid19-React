@@ -7,6 +7,7 @@
 
 .CardWrapper{
   margin: 2% 0;
+  flex-basis: 23%
   /* flex: 1; */
 }
 

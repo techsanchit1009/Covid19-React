@@ -11,35 +11,47 @@ import classes from "./Home.css";
 import * as timelineAction from "../../store/actions/fetchByTimeline";
 import * as countryAction from "../../store/actions/fetchByCountry";
 import * as newsAction from "../../store/actions/fetchNews";
+import * as totalCasesAction from '../../store/actions/fetchTotalCases';
 import Spinner from "../../components/Spinner/Spinner";
 
 const Home = (props) => {
   useEffect(() => {
     console.log('useEffect called');
+    props.onFetchTotalCases();
     props.onFetchTimeline();
     props.onFetchCountry();
     props.onFetchNews();
-  }, [props.onFetchTimeline, props.onFetchCountry, props.onFetchNews]);
+  }, [props.onFetchTotalCases, props.onFetchTimeline, props.onFetchCountry, props.onFetchNews]);
  
   let home = (
     <div className={classes.Home}>
       <div className={classes.Container}>
         <div className={classes.Main}>
           <div className={classes.LeftMain}>
-            <CurrentSitutations />
+            <CurrentSitutations
+              totalCasesCount={props.totalCasesCount}
+              splicedData={props.splicedData}
+              loadingCases={props.loadingCases}
+            />
             <div className={classes.ListnMap}>
-              <CountryList />
-              <WorldMap />
+              <CountryList
+                countryList={props.countryList}
+                loadingCountries={props.loadingCountries}
+              />
+              <WorldMap worldMapData={props.worldMapData} />
             </div>
             <div className={classes.GraphnNews}>
-              <SpreadTrends />
-              <NewsUpdate />
+              <SpreadTrends casesByTimeline={props.casesByTimeline} />
+              <NewsUpdate
+                newsArray={props.newsArray}
+                loadingNews={props.loadingNews}
+              />
             </div>
           </div>
 
           <div className={classes.RightMain}>
             <div className={classes.RatioNFeeds}>
-              <RecoveryRatio />
+              <RecoveryRatio totalCasesCount={props.totalCasesCount} />
               <TwitterFeeds />
             </div>
           </div>
@@ -56,8 +68,16 @@ const Home = (props) => {
 
 const mapStateToProps = (state) => {
   return {
+    totalCasesCount: state.casesData.totalCases,
+    splicedData: state.casesData.splicedData,
+    countryList: state.casesData.countryList,
+    worldMapData: state.casesData.worldMapData,
+    newsArray: state.newsData.newsArray,
+    casesByTimeline: state.casesData.casesByTimeline,
+
     loadingCases: state.casesData.loadingCases,
     loadingNews: state.newsData.loadingNews,
+    loadingCountries: state.casesData.loadingCountries,
   };
 };
 
@@ -66,6 +86,7 @@ const mapDispatchToProps = (dispatch) => {
     onFetchTimeline: () => dispatch(timelineAction.initFetchByTimeline()),
     onFetchCountry: () => dispatch(countryAction.initFetchByCountry()),
     onFetchNews: () => dispatch(newsAction.initFetchNews()),
+    onFetchTotalCases: () => dispatch(totalCasesAction.initFetchTotalCases())
   };
 };
 

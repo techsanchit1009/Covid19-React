@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Card from "../../../shared/Card/Card";
 import { FaChevronRight, FaChevronLeft, FaArrowRight } from "react-icons/fa";
 import newsLogo from "../../../assets/news_update.svg";
-import { connect } from "react-redux";
 import Spinner from '../../../components/Spinner/Spinner';
 import classes from "./NewsUpdate.css";
 
@@ -88,12 +87,4 @@ const NewsUpdate = (props) => {
   );
 };
 
-const mapStateToProps = state => {
-  return{
-    newsArray: state.newsData.newsArray,
-    loadingNews: state.newsData.loadingNews
-  }
-};
-
-
-export default connect(mapStateToProps)(NewsUpdate);
+export default NewsUpdate;

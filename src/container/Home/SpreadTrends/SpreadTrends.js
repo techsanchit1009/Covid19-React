@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Card from "../../../shared/Card/Card";
 import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
 import classes from "./SpreadTrends.css";
-import { connect } from "react-redux";
 
 
 const SpreadTrends = props => {
@@ -65,12 +64,5 @@ const SpreadTrends = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    casesByTimeline: state.casesData.casesByTimeline
-  }
-};
 
-
-
-export default connect(mapStateToProps)(SpreadTrends);
+export default SpreadTrends;

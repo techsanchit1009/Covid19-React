@@ -47,4 +47,8 @@
     /* flex-direction: column; */
     /* flex-wrap: wrap; */
   /* } */
+
+  .RightMain{
+    margin-left: 0;
+  }
 }

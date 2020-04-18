@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "../../../shared/Card/Card";
-import { connect } from "react-redux";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import { AreaChart, Area, Tooltip, XAxis } from "recharts";
 import classes from "./CurrentSituations.css";
@@ -26,7 +25,6 @@ const CurrentSituations = (props) => {
     return caretSign;
   };
 
-  console.log(props);
 
   return (
     <div className={classes.CurrentSituations}>
@@ -83,12 +81,4 @@ const CurrentSituations = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    totalCasesCount: state.casesData.totalCases,
-    splicedData: state.casesData.splicedData,
-    loadingCases: state.casesData.loadingCases,
-  };
-};
-
-export default connect(mapStateToProps)(CurrentSituations);
+export default CurrentSituations;

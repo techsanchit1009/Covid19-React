@@ -4,7 +4,6 @@ import HighchartsReact from "highcharts-react-official";
 import mapData from "./mapData";
 import Card from "../../../shared/Card/Card";
 import classes from "./WorldMap.css";
-import { connect } from 'react-redux';
 
 
 require("highcharts/modules/map")(Highcharts);
@@ -68,10 +67,5 @@ const WorldMap = (props) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    worldMapData: state.casesData.worldMapData
-  }
-};
 
-export default connect(mapStateToProps)(WorldMap);
+export default WorldMap;

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
 import searchIcon from "../../../assets/search.svg";
 import Card from "../../../shared/Card/Card";
 import Country from "./Country/Country";
@@ -60,12 +59,5 @@ const CountryList = (props) => {
   );
 };
 
-const mapStateToProps = state => {
-  // console.log(state);
-  return {
-    countryList: state.casesData.countryList,
-    loadingCountries: state.casesData.loadingCountries
-  };
-};
 
-export default connect(mapStateToProps)(CountryList);
+export default CountryList;

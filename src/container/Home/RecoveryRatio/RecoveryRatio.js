@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "../../../shared/Card/Card";
 import classes from "./RecoveryRatio.css";
-import { connect } from "react-redux";
 
 const RecoveryRatio = (props) => {
  
@@ -11,9 +10,9 @@ const RecoveryRatio = (props) => {
 
   let percent;
   let affectedCases, recoveredCases;
-  if(props.totalCases.length){
-    affectedCases = props.totalCases[0].casesCount;
-    recoveredCases = props.totalCases[1].casesCount;
+  if(props.totalCasesCount.length){
+    affectedCases = props.totalCasesCount[0].casesCount;
+    recoveredCases = props.totalCasesCount[1].casesCount;
     percent = ((recoveredCases / affectedCases) * 100).toFixed(1);  
   } 
   
@@ -54,11 +53,4 @@ const RecoveryRatio = (props) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    totalCases: state.casesData.totalCases
-  }
-};
-
-
-export default connect(mapStateToProps)(RecoveryRatio);
+export default RecoveryRatio;
