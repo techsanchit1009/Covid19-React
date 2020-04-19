@@ -22,13 +22,6 @@ const Home = (props) => {
     props.onFetchTimeline();
     props.onFetchCountry();
     props.onFetchNews();
-
-    // setInterval(() => {
-    //   props.onFetchTotalCases();
-    //   props.onFetchTimeline();
-    //   props.onFetchCountry();
-    //   props.onFetchNews();
-    // }, 5000);
   }, [props.onFetchTotalCases, props.onFetchTimeline, props.onFetchCountry, props.onFetchNews]);
  
   let home = (

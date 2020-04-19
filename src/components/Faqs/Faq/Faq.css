@@ -27,6 +27,7 @@ padding: 0.3rem 0.5rem;
   color: rgb(70, 68, 68);
   overflow-y: hidden;
   transition: all 0.4s ease;
+  line-height: 1.3rem;
 }
 
 .Open .FaqQuestion{

@@ -89,7 +89,7 @@ const reducer = (state = initialState, action) => {
       const sortedCountryList = action.fetchedCountryData
         .filter((country) => country.cases > 10)
         .sort((a, b) => b.cases - a.cases);
-      let worldMapArray = [];
+      const worldMapArray = [];
       action.fetchedCountryData.map((country) => {
         if (country.countryInfo.iso2) {
           // eslint-disable-next-line
@@ -97,6 +97,7 @@ const reducer = (state = initialState, action) => {
             country.countryInfo.iso2.toLowerCase(),
             country.cases
           );
+          console.log(countryArray);
           worldMapArray.push(countryArray);
         }
         return worldMapArray;

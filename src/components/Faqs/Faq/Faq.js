@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../../../shared/Card/Card";
-import { FaCaretDown } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import classes from "./Faq.css";
 
 const Faq = (props) => {
@@ -13,7 +13,7 @@ const Faq = (props) => {
       <Card>
         <div className={classes.FaqQuestion} onClick={() => props.toggleFaq(props.index)}>
           <div>{props.question}</div>
-          <div className={classes.CaretArea}><FaCaretDown size="20px"/></div>
+          <div className={classes.CaretArea}><FaChevronDown size="20px"/></div>
         </div>
       </Card>
       <Card>

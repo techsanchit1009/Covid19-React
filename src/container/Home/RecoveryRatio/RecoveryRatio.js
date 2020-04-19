@@ -8,8 +8,8 @@ const RecoveryRatio = (props) => {
     return (cases/1000).toFixed(1);
   }
 
-  let percent;
-  let affectedCases, recoveredCases;
+  let percent = 0;
+  let affectedCases = 0, recoveredCases = 0;
   if(props.totalCasesCount.length){
     affectedCases = props.totalCasesCount[0].casesCount;
     recoveredCases = props.totalCasesCount[1].casesCount;

@@ -20,7 +20,7 @@ const app = () => {
     setShowSideDrawer(!showSideDrawer);
   }
 
-  let routes = (
+  const routes = (
     <Switch>
       <Route path="/" exact render={() => <Home />} />
       <Route path="/faq" render={() => <Faqs />} />
