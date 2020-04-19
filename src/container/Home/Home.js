@@ -17,7 +17,7 @@ import Spinner from "../../components/Spinner/Spinner";
 
 const Home = (props) => {
   useEffect(() => {
-    console.log('useEffect called');
+    console.log('actions Dispatched');
     props.onFetchTotalCases();
     props.onFetchTimeline();
     props.onFetchCountry();

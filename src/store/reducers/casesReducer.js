@@ -97,7 +97,6 @@ const reducer = (state = initialState, action) => {
             country.countryInfo.iso2.toLowerCase(),
             country.cases
           );
-          console.log(countryArray);
           worldMapArray.push(countryArray);
         }
         return worldMapArray;

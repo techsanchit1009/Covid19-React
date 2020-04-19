@@ -11,6 +11,7 @@ padding: 0.3rem 0.5rem;
 .FaqQuestion{
   display: flex;
   justify-content: space-between;
+  padding: 0.7rem 0.5rem;
   padding-right: 1rem;
   margin: 0.5rem 0;
   color: rgb(221, 11, 11);
