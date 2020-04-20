@@ -15,15 +15,12 @@
 
 .ListnMap {
   display: flex;
-  /* max-width: 75vw; */
   flex-direction: row;
-  /* flex-wrap: wrap; */
 }
 
 .GraphnNews {
   display: flex;
   justify-content: space-between;
-  /* flex-wrap: wrap; //Add this with media query */
 }
 
 .RatioNFeeds {
@@ -32,16 +29,51 @@
   flex-wrap: wrap;
 }
 
+
+/* Animation on Load */
+@keyframes fadeInUp {
+  from {
+      transform: translate3d(0,20px,0)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+      transform: translate3d(0,40px,0)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
+.Main {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both
+}
+
+
+.Main {
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+}
+
+/*-----------------------*/
+
 @media (max-width: 600px) {
   .GraphnNews {
     flex-direction: column;
     flex-wrap: wrap;
   }
-
-  /* .ListnMap { */
-    /* flex-direction: column; */
-    /* flex-wrap: wrap; */
-  /* } */
 
   .RightMain{
     margin-left: 0;

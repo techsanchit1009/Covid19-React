@@ -7,9 +7,11 @@ import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
 import classes from "./App.css";
 import SideDrawer from './components/SideDrawer/SideDrawer';
 
-// const Faqs = React.lazy(() => import("./components/Faqs/Faqs"));
+// const Faqs = React.lazy(() => {
+//   return import("./components/Faqs/Faqs");
+// }
 
-const app = () => {
+const App = () => {
   const [showSideDrawer, setShowSideDrawer] = useState(false);
 
   const showSideDrawerHandler = () => {
@@ -39,4 +41,4 @@ const app = () => {
   );
 };
 
-export default app;
+export default App;
