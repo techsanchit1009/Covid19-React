@@ -50,12 +50,12 @@ const Home = (props) => {
             </div>
           </div>
 
-          <div className={classes.RightMain}>
+          {props.loadingNews ? <Spinner /> : (<div className={classes.RightMain}>
             <div className={classes.RatioNFeeds}>
               <RecoveryRatio totalCasesCount={props.totalCasesCount} />
               <TwitterFeeds />
             </div>
-          </div>
+          </div>)}
         </div>
       </Container>
     </div>

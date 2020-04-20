@@ -22,11 +22,18 @@ const RecoveryRatio = (props) => {
         <div className={classes.Heading}>Ratio of Recovery</div>
         <div className={classes.ProgressBarArea}>
           <svg>
+            <defs>
+              <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="10%" stopColor="#06BA90" />
+                <stop offset="90%" stopColor="#BAFAEB" />
+              </linearGradient>
+            </defs>
             <circle className={classes.Path} cx="50%" cy="50%" r="90" />
             <circle
               className={classes.Progress}
               style={{
                 strokeDashoffset: `calc(565 - (565 * ${percent}) / 100)`,
+                stroke: "url(#linear)"
               }}
               cx="50%"
               cy="50%"
@@ -41,12 +48,12 @@ const RecoveryRatio = (props) => {
           </div>
         </div>
         <div className={classes.CaseCount}>
-            <div className={classes.AffectedCount}>
-              {formatCases(affectedCases)}k Affected
-              </div>
+          <div className={classes.AffectedCount}>
+            {formatCases(affectedCases)}k Affected
+          </div>
           <div className={classes.RecoveredCount}>
             {formatCases(recoveredCases)}k Recovered
-            </div>
+          </div>
         </div>
       </div>
     </Card>

@@ -24,7 +24,7 @@
 
 circle{
   fill: #F5F5F5;
-  stroke-width: 5;
+  stroke-width: 4;
   stroke-dasharray: 565;
   stroke-dashoffset: 565;
   stroke-linecap: round;
@@ -36,9 +36,9 @@ circle{
 }
 
 .Progress{
-  stroke: #06BA90;
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
+  transition: all 3.5s ease-in-out;
 }
 
 .PercentBox{

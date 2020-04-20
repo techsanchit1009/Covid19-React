@@ -82,7 +82,7 @@ const NewsUpdate = (props) => {
 
   return (
     <div className={classes.NewsUpdate}>
-      {props.loadingNews ? <Spinner /> : news}
+      {!props.loadingNews && news}
     </div>
   );
 };

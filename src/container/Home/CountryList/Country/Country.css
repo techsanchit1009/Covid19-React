@@ -4,6 +4,16 @@
   padding: 0.8rem;
   box-sizing: border-box;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CaretSign{
+  justify-self: flex-end;
+  color: red;
+  margin-right: 1rem;
+  font-size: 1.2rem;
 }
 
 .CountryHeading{
