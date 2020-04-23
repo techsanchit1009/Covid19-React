@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../../../shared/Card/Card";
 import { FaChevronRight, FaChevronLeft, FaArrowRight } from "react-icons/fa";
 import newsLogo from "../../../assets/news_update.svg";
-import Spinner from '../../../components/Spinner/Spinner';
 import classes from "./NewsUpdate.css";
-
 
 const NewsUpdate = (props) => {
   const [x, setX] = useState(0);
@@ -17,7 +15,7 @@ const NewsUpdate = (props) => {
   useEffect(() => {
     const timer = setInterval(() => {
       goRight();
-    }, 10000);
+    }, 100000);
     return () => clearInterval(timer);
   }, [props.newsArray, x, setX]);
 

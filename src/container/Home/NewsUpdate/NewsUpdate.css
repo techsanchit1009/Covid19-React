@@ -82,6 +82,7 @@
   background-color: transparent;
   outline: none;
   border: none;
+  color: darkgray;
 }
 
 .NavigationButtons:hover{
@@ -105,5 +106,8 @@
   }
   .NewsLogo{
     display: none;
+  }
+  .NewsInfo{
+    padding: 0 0.6rem;
   }
 }

@@ -38,7 +38,7 @@ circle{
 .Progress{
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
-  transition: all 3.5s ease-in-out;
+  transition: all 2s ease-in-out;
 }
 
 .PercentBox{
