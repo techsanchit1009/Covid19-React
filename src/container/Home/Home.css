@@ -1,6 +1,7 @@
 .Main {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .LeftMain {
@@ -28,6 +29,16 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+}
+
+.Time{
+  position: absolute;
+  top: 0%;
+  z-index: 1000;
+  right: 3%;
+  font-size: 0.9rem;
+  border: 1px solid #aaa;
+  background-color: #ccc;
 }
 
 
@@ -72,6 +83,7 @@
 
 @media (max-width: 600px) {
   .LeftMain{
+    margin-top: 1rem;
     max-width: 100vw;
   }
   
@@ -82,5 +94,10 @@
 
   .RightMain{
     margin-left: 0;
+  }
+  
+  .Time{
+    top: 8%;
+    z-index: 0;
   }
 }

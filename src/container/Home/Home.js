@@ -24,8 +24,22 @@ const Home = (props) => {
     props.onFetchNews();
   }, [props.onFetchTotalCases, props.onFetchTimeline, props.onFetchCountry, props.onFetchNews]);
  
+  const updateTime = (time) => {
+    let fullTimeArr = new Date(time).toString().split(" ");
+    let date = `${fullTimeArr[2]} ${fullTimeArr[1]}, ${fullTimeArr[3]}  `;
+    let timeArr = fullTimeArr[4].split(":");
+    let meridian = "AM";
+    if (timeArr[0] > 12) {
+      timeArr[0] -= 12;
+      meridian = "PM";
+    }
+    let timeString = `${timeArr[0]}:${timeArr[1]} ${meridian}`;
+    return `${date} ${timeString}`;
+  };
+
   let home = (
     <div className={classes.Home}>
+      <div className={classes.Time}>Last Updated: {updateTime(new Date().getTime())}</div>
       <Container>
         <div className={classes.Main}>
           <div className={classes.LeftMain}>

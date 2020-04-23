@@ -4,7 +4,7 @@
 }
 
 .List{
-  height: 60vh;
+  max-height: 60vh;
   padding: 0.5rem;
   overflow-y: scroll;
   overflow-x: hidden;
